@@ -20,3 +20,6 @@ def publish():
     """
     are its fetch 20 messages and publish them to kafka
     """
+    messages = load_messages()
+    publish_messages(messages)
+    return {"status": "published", "count": len(messages)}
