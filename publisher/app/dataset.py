@@ -19,7 +19,7 @@ NOT_INTERESTING = [
     "talk.politics.misc", "talk.religion.misc"
 ]
 
-def load_messages():
+def load_messages(n: int = 20):
     """
     Here I loaded messages from the dataset.
     

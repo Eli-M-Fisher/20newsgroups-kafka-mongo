@@ -2,10 +2,18 @@
 fastapi subscriber service for "interesting" topic
 """
 
+
 from fastapi import FastAPI
 from .db import collection
+from .consumer import consume_messages
+import threading
 
 app = FastAPI()
+
+@app.on_event("startup")
+def start_consumer():
+    thread = threading.Thread(target=consume_messages, daemon=True)
+    thread.start()
 
 @app.get("/")
 def root():
