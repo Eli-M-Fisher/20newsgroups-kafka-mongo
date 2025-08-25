@@ -18,3 +18,5 @@ def get_messages():
     """
     and return all stored messages from mongodb
     """
+    msgs = list(collection.find({}, {"_id": 0}))
+    return {"messages": msgs}
